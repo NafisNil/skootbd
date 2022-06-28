@@ -4,6 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CredentialController;
+use App\Http\Controllers\TermController;
+use App\Http\Controllers\RuleController;
+use App\Http\Controllers\GalleryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,5 +35,12 @@ Route::group(['middleware' => 'auth'], function () {
         'logo' => LogoController::class,
         'slider' => SliderController::class,
         'about' => AboutController::class,
+        'team' => TeamController::class,
+        'message' => MessageController::class,
+        'contact' => ContactController::class,
+        'credential' => CredentialController::class,
+        'term' => TermController::class,
+        'rule' => RuleController::class,
+        'gallery' => GalleryController::class
     ]);
 });

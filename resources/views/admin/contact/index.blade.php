@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Logo</h1>
+            <h1>Contact</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Logo</li>
+              <li class="breadcrumb-item active">Contact</li>
             </ol>
           </div>
         </div>
@@ -24,10 +24,10 @@
           <!-- left column -->
              <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Logo</h3>
-               @if ($sliderCount < 1)
-               <a href="{{route('slider.create')}}" class="float-right btn btn-outline-dark btn-sm mb-2"><i class="fas fa-plus-square"></i></a>
-               @endif
+                <h3 class="card-title">Contact</h3>
+             
+               <a href="{{route('contact.create')}}" class="float-right btn btn-outline-dark btn-sm mb-2"><i class="fas fa-plus-square"></i></a>
+        
                
                
                   
@@ -39,9 +39,11 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Title</th>
-                    <th>Sub Title</th>
-                    <th>Image</th>
+                    <th>Email</th>
+                    <th>Phone (Primary)</th>
+                    <th>Phone (Secondary)</th>
+                    <th>Address</th>
+               
                     <th>Action</th>
                    
                   </tr>
@@ -51,37 +53,42 @@
                   
                         
                    
+           
+                 
                   <tr>
                     <td>#1</td>
-                    <td>{{@$slider->title}}</td>
-                    <td>{{@$slider->subtitle}}</td>
-                
-                    <td><img src="{{(!empty($slider->logo))?URL::to('storage/'.$slider->logo):URL::to('image/no_image.png')}}" alt="" style="max-width:250px"></td>
+                    <td>{{@$contact->email}}</td>
+                    <td>{{@$contact->phonep}}</td>
+                    <td>{!!@$contact->phones!!}</td>
+              
+              
+                    <td>{!!@$contact->address!!}</td>
+                  
                     <td>
-                      @if ($sliderCount > 0)
-                   
-                      <a href="{{route('slider.edit',[$slider])}}"><button class="btn btn-outline-info btn-sm"><i class="fas fa-pen-square"></i></button></a>
+                  
+                      @if ($contactCount > 0)
+                      <a href="{{route('contact.edit',[$contact])}}"><button class="btn btn-outline-info btn-sm"><i class="fas fa-pen-square"></i></button></a>
                     
-                      <form action="{{route('slider.destroy',[$slider])}}" method="POST">
+                      <form action="{{route('contact.destroy',[$contact])}}" method="POST">
                         @method('DELETE')
                         @csrf
                         <button class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button>
                     </form>
-                         
-                    @endif
+                         @endif
+              
                     </td>
                    
                   </tr>
-                
-    
+
 
                   </tbody>
                   <tfoot>
                   <tr>
                     <th>#</th>
-                    <th>Title</th>
-                    <th>Sub Title</th>
-                    <th>Image</th>
+                    <th>Email</th>
+                    <th>Phone (Primary)</th>
+                    <th>Phone (Secondary)</th>
+                    <th>Address</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

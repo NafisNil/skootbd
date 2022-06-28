@@ -76,41 +76,61 @@
                   <p>About</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="{{route('team.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Team Member</p>
+                </a>
+              </li>
             </ul>
           </li>
 
-          <li class="nav-header">EXAMPLES</li>
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>
+    
+
+
 
           <li class="nav-header">MISCELLANEOUS</li>
           <li class="nav-item">
-            <a href="iframe.html" class="nav-link">
+            <a href="{{route('message.index')}}" class="nav-link">
               <i class="nav-icon fas fa-ellipsis-h"></i>
-              <p>Tabbed IFrame Plugin</p>
+              <p>Welcome Message</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('contact.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <p>Contact</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('credential.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-ellipsis-h"></i>
+              <p>Credential</p>
             </a>
           </li>
 
           <li class="nav-header">LABELS</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('term.index')}}" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
-              <p class="text">Important</p>
+              <p class="text">Terms and Condition</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('rule.index')}}" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p class="text">How to use</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('gallery.index')}}" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p class="text">Gallery</p>
             </a>
           </li>
 

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Team;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
-use App\Http\Requests\TeamRequest;
+use App\Http\Requests\GalleryRequest;
 use Image;
-class TeamController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class TeamController extends Controller
     public function index()
     {
         //
-        $team = Team::orderBy('id', 'desc')->get();
- 
-        return view('admin.team.index',['team'=>$team]);
+        $gallery = Gallery::orderBy('id', 'desc')->get();
+        
+        return view('admin.gallery.index',['gallery'=>$gallery]);
     }
 
     /**
@@ -29,7 +29,7 @@ class TeamController extends Controller
     public function create()
     {
         //
-        return view('admin.team.create');
+        return view('admin.gallery.create');
     }
 
     /**
@@ -38,39 +38,38 @@ class TeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TeamRequest $request)
+    public function store(GalleryRequest $request)
     {
         //
-        $team = Team::create($request->all());
+        $gallery = Gallery::create($request->all());
         if ($request->hasFile('logo')) {
-            $this->_uploadImage($request, $team);
+            $this->_uploadImage($request, $gallery);
         }
-        return redirect()->route('team.index')->with('success','Data inserted successfully');
+        return redirect()->route('gallery.index')->with('success','Data inserted successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Team  $team
+     * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function show(Team $team)
+    public function show(Gallery $gallery)
     {
         //
-        
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Team  $team
+     * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function edit(Team $team)
+    public function edit(Gallery $gallery)
     {
         //
-        return view('admin.team.edit',[
-            'edit' => $team
+        return view('admin.gallery.edit',[
+            'edit' => $gallery
         ]);
     }
 
@@ -78,33 +77,33 @@ class TeamController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Team  $team
+     * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function update(TeamRequest $request, Team $team)
+    public function update(GalleryRequest $request, Gallery $gallery)
     {
         //
-        $team->update($request->all());
+        $gallery->update($request->all());
         if ($request->hasFile('logo')) {
-            @unlink('storage/'.$team->logo);
-            $this->_uploadImage($request, $team);
+            @unlink('storage/'.$gallery->logo);
+            $this->_uploadImage($request, $gallery);
         }
-        return redirect()->route('team.index')->with('success','Data updated successfully');
+        return redirect()->route('gallery.index')->with('success','Data updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Team  $team
+     * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Team $team)
+    public function destroy(Gallery $gallery)
     {
         //
-        if(!empty($team->logo));
-        @unlink('storage/'.$team->logo);
-        $team->delete();
-        return redirect()->route('team.index')->with('status','Data deleted successfully!');
+        if(!empty($gallery->logo));
+        @unlink('storage/'.$gallery->logo);
+        $gallery->delete();
+        return redirect()->route('gallery.index')->with('status','Data deleted successfully!');
     }
 
     private function _uploadImage($request, $team)
