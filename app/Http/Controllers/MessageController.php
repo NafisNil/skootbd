@@ -113,7 +113,7 @@ class MessageController extends Controller
             $image = $request->file('logo');
             $filename = time() . '.' . $image->getClientOriginalExtension();
         
-            Image::make($image)->resize(355, 475)->save(public_path('storage/' . $filename));
+            Image::make($image)->resize(700, 411)->save(public_path('storage/' . $filename));
 
             $logo->logo = $filename;
             $logo->save();

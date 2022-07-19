@@ -8,7 +8,7 @@
         <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
+        <a href="#" class="d-block">{{Auth::user()->name}}</a>
       </div>
     </div>
 
@@ -76,11 +76,30 @@
                   <p>About</p>
                 </a>
               </li>
-
+              <li class="nav-item">
+                <a href="{{route('partner.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Partner</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="{{route('team.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Team Member</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('mission.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mission</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('vision.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Vision</p>
                 </a>
               </li>
             </ul>
@@ -131,6 +150,14 @@
             <a href="{{route('gallery.index')}}" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
               <p class="text">Gallery</p>
+            </a>
+          </li>
+
+          <hr>
+          <li class="nav-item">
+            <a href="{{route('cmessage.index')}}" class="nav-link">
+              <i class="nav-icon far fa-circle text-info"></i>
+              <p class="text">User Message</p>
             </a>
           </li>
 
